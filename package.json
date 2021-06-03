@@ -1,5 +1,5 @@
 {
-  "name": "wzj-marketing-mp",
+  "name": "taro-wzj-mp",
   "version": "1.0.0",
   "private": true,
   "description": "我在家商城活动",
@@ -39,19 +39,20 @@
     "@tarojs/components": "3.2.9",
     "@tarojs/runtime": "3.2.9",
     "@tarojs/taro": "3.2.9",
-    "vue-template-compiler": "^2.5.0",
-    "vue": "^2.5.0"
+    "vue": "^2.5.0",
+    "vue-template-compiler": "^2.5.0"
   },
   "devDependencies": {
-    "@types/webpack-env": "^1.13.6",
-    "@tarojs/mini-runner": "3.2.9",
     "@babel/core": "^7.8.0",
+    "@tarojs/mini-runner": "3.2.9",
     "@tarojs/webpack-runner": "3.2.9",
+    "@types/webpack-env": "^1.13.6",
     "babel-preset-taro": "3.2.9",
-    "vue-loader": "^15.9.2",
-    "eslint-plugin-vue": "^6.x",
-    "eslint-config-taro": "3.2.9",
     "eslint": "^6.8.0",
-    "stylelint": "9.3.0"
+    "eslint-config-taro": "3.2.9",
+    "eslint-plugin-html": "^6.1.2",
+    "eslint-plugin-vue": "^6.x",
+    "stylelint": "^13.13.1",
+    "vue-loader": "^15.9.2"
   }
 }

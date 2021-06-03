@@ -1,6 +1,6 @@
 {
   "miniprogramRoot": "./",
-  "projectname": "wzj-marketing-mp",
+  "projectname": "taro-wzj-mp",
   "appid": "touristappid",
   "setting": {
     "es6": false,

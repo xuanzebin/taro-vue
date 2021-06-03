@@ -4,7 +4,7 @@ function resolve(dir) {
   return path.resolve(__dirname, "..", dir);
 }
 const config = {
-  projectName: "wzj-marketing-mp",
+  projectName: "taro-wzj-mp",
   date: "2021-5-25",
   designWidth: 750,
   deviceRatio: {
