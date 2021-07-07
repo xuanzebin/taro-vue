@@ -8,16 +8,5 @@ module.exports = {
       useBuiltIns: 'usage',
     }]
   ],
-  env: {
-    development: {
-      presets: [
-        ['taro', {
-          framework: 'vue',
-          ts: false,
-          useBuiltIns: false,
-        }]
-      ],
-    }
-  },
 }
 

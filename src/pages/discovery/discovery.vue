@@ -199,17 +199,27 @@ export default {
     }
   },
 
-  mounted() {
+  async mounted() {
     this.env = GET_CURRENT_ENV('gray')
     this.fruitIndex = FRUIT_LIST.findIndex(item => item === 'apple')
     this.fruit = FRUIT_LIST.includes('apple')
     console.log(this.fruitIndex )
+    await this.getAppConfig()
   },
 
   methods: {
     switchTab(index, e) {
       this.currentNavtab = index
-    }
+    },
+
+    async getAppConfig() {
+      console.log('discovery', {name: '123'})
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('123')
+        }, 1000)
+      })
+    } 
   }
 }
 </script>
