@@ -3,36 +3,49 @@
     <view class="search flex-wrp">
       <view class="search-left flex-item">
         <view class="flex-wrp">
-          <view class="flex1"
-            ><image src="../../asset/images/search.png"></image
-          ></view>
-          <view class="flex6"
-            ><input
+          <view
+            class="flex1"
+          >
+            <image src="../../asset/images/search.png" />
+          </view>
+          <view
+            class="flex6"
+          >
+            <input
               type="text"
               placeholder="搜索话题, 问题或人"
               placeholderClass="search-placeholder"
-          /></view>
+            >
+          </view>
         </view>
       </view>
       <view class="search-right flex-item">
-        <image @tap="updateList" src="../../asset/images/lighting.png"></image>
+        <image
+          src="../../asset/images/lighting.png"
+          @tap="updateList"
+        />
       </view>
     </view>
     <scroll-view
       class="container"
-      scrollY
+      scroll-y
       scroll-with-animation
-      scrollTop="0"
+      scroll-top="0"
       lower-threshold="10"
       upper-threshold="10"
       style="height: 300px"
       @scroll-to-upper="updateList"
       @scroll-to-lower="appendNextPageList"
     >
-      <view class="txcenter" v-if="loading">加载中</view>
+      <view
+        v-if="loading"
+        class="txcenter"
+      >
+        加载中
+      </view>
       <feed
-        v-else
         v-for="item in list"
+        v-else
         :key="item.item"
         :feed-source-img="item.feed_source_img"
         :feed-source-name="item.feed_source_name"
@@ -52,7 +65,7 @@ import Feed from '../../components/feed/feed.vue'
 
 export default {
   components: {
-    'feed': Feed
+    Feed
   },
   data() {
     return {

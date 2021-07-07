@@ -4,7 +4,8 @@ export default {
     'pages/discovery/discovery',
     'pages/more/more',
     'pages/answer/answer',
-    'pages/question/question'
+    'pages/question/question',
+    'pages/posts/index'
   ],
   window: {
     backgroundTextStyle: 'light',

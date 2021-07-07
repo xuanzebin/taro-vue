@@ -1,49 +1,78 @@
 <template>
   <view>
-      <view class='top-tab flex-wrp flex-tab'>
-        <view
-          v-for="(item, index) in navTab"
-          :key="index"
-          :class="currentNavtab === index ? 'toptab flex-item active' : 'toptab flex-item'"
-          @tap="switchTab(index)"
-        >
-          {{item}}
-        </view>
+    <view class="top-tab flex-wrp flex-tab">
+      <view
+        v-for="(item, index) in navTab"
+        :key="index"
+        :class="currentNavtab === index ? 'toptab flex-item active' : 'toptab flex-item'"
+        @tap="switchTab(index)"
+      >
+        {{ item }}
       </view>
-      <scroll-view scroll-y class='container discovery withtab'>
-        <view class='ctnt0' :hidden="currentNavtab==0 ? false : true">
-            <swiper class='activity' indicatorDots='true' autoplay interval='5000' duration='500'>
-              <swiper-item v-for="item in imgUrls" :key="item">
-                  <image :src='item' class='slide-image' width='355' height='375' />
-              </swiper-item>
-            </swiper>
-            <feed
-              v-for="(item, index) in feed"
-              :key="index"
-              :feed-source-img='item.feed_source_img'
-              :feed-source-name='item.feed_source_name'
-              :feed-source-txt='item.feed_source_txt'
-              :question='item.question'
-              :answer-ctnt='item.good_num'
-              :good-num='item.comment_num'
-              :comment-num='item.commentNum'
-            />
-        </view>
-          <view class='txcenter' :hidden='currentNavtab==1 ? false : true'>
-            <text>圆桌</text>
-          </view>
-          <view class='txcenter' :hidden='currentNavtab==2 ? false : true'>
-            <text>热门</text>
-          </view>
-          <view class='txcenter' :hidden='currentNavtab==3 ? false : true'>
-            <text>收藏</text>
-          </view>
-      </scroll-view>
     </view>
+    <scroll-view
+      scroll-y
+      class="container discovery withtab"
+    >
+      <view
+        class="ctnt0"
+        :hidden="currentNavtab==0 ? false : true"
+      >
+        <swiper
+          class="activity"
+          indicator-dots="true"
+          autoplay
+          interval="5000"
+          duration="500"
+        >
+          <swiper-item
+            v-for="item in imgUrls"
+            :key="item"
+          >
+            <image
+              :src="item"
+              class="slide-image"
+              width="355"
+              height="375"
+            />
+          </swiper-item>
+        </swiper>
+        <feed
+          v-for="(item, index) in feed"
+          :key="index"
+          :feed-source-img="item.feed_source_img"
+          :feed-source-name="item.feed_source_name"
+          :feed-source-txt="item.feed_source_txt"
+          :question="item.question"
+          :answer-ctnt="item.good_num"
+          :good-num="item.comment_num"
+          :comment-num="item.commentNum"
+        />
+      </view>
+      <view
+        v-if="currentNavtab === 1"
+        class="txcenter"
+      >
+        <text>圆桌</text>
+      </view>
+      <view
+        v-else-if="currentNavtab === 2"
+        class="txcenter"
+      >
+        <text>热门</text>
+      </view>
+      <view
+        v-else-if="currentNavtab === 3"
+        class="txcenter"
+      >
+        <text>收藏</text>
+      </view>
+    </scroll-view>
+  </view>
 </template>
 
 <script>
-import './discovery.scss'
+// import './discovery.scss'
 import Feed from '../../components/feed/feed.vue'
 import img1 from '../../asset/images/24213.jpg'
 import img2 from '../../asset/images/24280.jpg'
@@ -51,6 +80,15 @@ import img3 from '../../asset/images/1444983318907-_DSC1826.jpg'
 import img4 from '../../asset/images/icon1.jpeg'
 import img5 from '../../asset/images/icon8.jpg'
 import img6 from '../../asset/images/icon9.jpeg'
+
+
+const PROD_ENV_MAP = {
+  test: 'test',
+  gray: 'gary'
+}
+
+const GET_CURRENT_ENV = (type) => PROD_ENV_MAP[type]
+const FRUIT_LIST = ['apple', 'parnora']
 export default {
   components: {
     feed: Feed
@@ -160,6 +198,14 @@ export default {
       ],
     }
   },
+
+  mounted() {
+    this.env = GET_CURRENT_ENV('gray')
+    this.fruitIndex = FRUIT_LIST.findIndex(item => item === 'apple')
+    this.fruit = FRUIT_LIST.includes('apple')
+    console.log(this.fruitIndex )
+  },
+
   methods: {
     switchTab(index, e) {
       this.currentNavtab = index
@@ -168,6 +214,38 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.container{
+  height: 1500px;
+}
+.top-tab{
+  width: 750px;
+  height: 100px;
+  background: #298DE5;
+  color: #8CCEFD;
+  font-size: 28px;
+  line-height: 100px;
+  box-shadow: 0 2px 2px #bebebe;
+  margin: 0 0 8px 0;
+  z-index: 9999;
+
+  .active {
+    color: #ffffff;
+    border-bottom: solid 2px #ffffff;
+  }
+}
+
+.activity{
+  width: 750px;
+  height: 375px;
+}
+.activity image,.activity img{
+  width: 750px;
+  height: 400px;
+}
+.placehold{
+  font-size: 28px;
+  padding: 80px 0;
+}
 
 </style>

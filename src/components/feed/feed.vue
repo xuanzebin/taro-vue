@@ -1,40 +1,59 @@
 <template>
-<view class='feed-item'>
-  <view class='feed-source'>
-    <view class='avatar flex1'>
-        <image class='avatar_img' :src='feedSourceImg'></image>
+  <view class="feed-item">
+    <view class="feed-source">
+      <view class="avatar flex1">
+        <image
+          class="avatar_img"
+          :src="feedSourceImg"
+        />
+      </view>
+      <view class="flex8">
+        <text class="feed-source-txt">
+          {{ feedSourceName }}{{ feedSourceTxt }}
+        </text>
+      </view>
+      <view class="flex1">
+        <image
+          class="item-more"
+          mode="aspectFit"
+          src="../../asset/images/more.png"
+        />
+      </view>
     </view>
-    <view class='flex8'>
-      <text class='feed-source-txt'>{{feedSourceName}}{{feedSourceTxt}}</text>
-    </view>
-    <view class='flex1'>
-      <image class='item-more' mode='aspectFit' src='../../asset/images/more.png'></image>
+    <view class="feed-content">
+      <view
+        class="question"
+        @tap="navigateTo('/pages/question/question')"
+      >
+        <view class="question-link">
+          <text class="question__content">
+            {{ question }}
+          </text>
+        </view>
+      </view>
+      <view class="answer-body">
+        <view>
+          <text
+            class="answer-txt"
+            @tap="navigateTo('/pages/answer/answer')"
+          >
+            {{ answerCtnt }}
+          </text>
+        </view>
+        <view class="answer-actions">
+          <view class="answer-actions__item like dot">
+            <view>{{ goodNum }} 赞同 </view>
+          </view>
+          <view class="answer-actions__item comments dot">
+            <view>{{ commentNum }} 评论 </view>
+          </view>
+          <view class="answer-actions__item follow-it">
+            <view>关注问题</view>
+          </view>
+        </view>
+      </view>
     </view>
   </view>
-  <view class='feed-content'>
-      <view class='question' @tap="navigateTo('/pages/question/question')">
-          <view class='question-link'>
-              <text>{{question}}</text>
-          </view>
-      </view>
-      <view class='answer-body'>
-          <view>
-              <text class='answer-txt' @tap="navigateTo('/pages/answer/answer')" >{{answerCtnt}}</text>
-          </view>
-          <view class='answer-actions'>
-              <view class='like dot'>
-                  <view>{{goodNum}} 赞同 </view>
-              </view>
-              <view class='comments dot'>
-                  <view>{{commentNum}} 评论 </view>
-              </view>
-              <view class='follow-it'>
-                  <view>关注问题</view>
-              </view>
-          </view>
-      </view>
-  </view>
-</view>
 </template>
 
 <script>

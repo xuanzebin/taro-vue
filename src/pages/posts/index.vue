@@ -5,9 +5,10 @@
 </template>
 
 <script>
-import './index.scss'
 
 export default {
+  components: {
+  },
   data () {
     return {
       msg: 'Hello world!'

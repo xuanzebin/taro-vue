@@ -3,6 +3,7 @@ const path = require("path");
 function resolve(dir) {
   return path.resolve(__dirname, "..", dir);
 }
+
 const config = {
   projectName: "taro-wzj-mp",
   date: "2021-5-25",
@@ -69,19 +70,22 @@ const config = {
   h5: {
     publicPath: "/",
     staticDirectory: "static",
+    router: {
+      mode: 'browser'
+    },
     postcss: {
       autoprefixer: {
         enable: true,
         config: {}
       },
       cssModules: {
-        enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
+        enable: true, // 默认为 false，如需使用 css modules 功能，则设为 true
         config: {
           namingPattern: "module", // 转换模式，取值为 global/module
           generateScopedName: "[name]__[local]___[hash:base64:5]"
         }
       }
-    }
+    },
   }
 };
 

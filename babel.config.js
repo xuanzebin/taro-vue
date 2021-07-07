@@ -4,7 +4,20 @@ module.exports = {
   presets: [
     ['taro', {
       framework: 'vue',
-      ts: false
+      ts: false,
+      useBuiltIns: 'usage',
     }]
-  ]
+  ],
+  env: {
+    development: {
+      presets: [
+        ['taro', {
+          framework: 'vue',
+          ts: false,
+          useBuiltIns: false,
+        }]
+      ],
+    }
+  },
 }
+
